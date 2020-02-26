@@ -31,6 +31,13 @@ int main(int argc, char** argv) {
         exit(1);
     }
     std::cout << "Connected to server.\n";
+    while(1) {
+        char rbuff[128];
+        int bytes_recieved = recv(sockfd, rbuff, 128, 0);
+        if(bytes_recieved > 0) {
+            std::cout << "Informed of client IP: " << rbuff << std::endl;
+        }
+    }
 
 
 
